@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package com.redpup.ccm.gui;
+
+option java_outer_classname = "GuiArgsProtos";
+option java_package = "com.redpup.ccm.gui.proto";
+
+// Args used to create the GUI.
+// Next ID: 2.
+message GuiArgs {
+  // Args used to create each panel. Represented in order given.
+  repeated PanelArgs panel = 1;
+}
+
+// Args used to create a panel.
+// Next ID: 2.
+message PanelArgs {
+  // Name of this panel.
+  string name = 1;
+}
