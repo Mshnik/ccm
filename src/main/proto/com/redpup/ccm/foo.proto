@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package com.redpup.ccm;
+
+option java_outer_classname = "FooProtos";
+option java_package = "com.redpup.ccm.proto";
+
+// A test proto to check for proto framework validity.
+message Foo {
+  string value = 1;
+}
