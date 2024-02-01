@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package com.redpup.ccm;
+
+option java_outer_classname = "ServiceProtos";
+option java_package = "com.redpup.ccm.proto";
+
+service CCMService {
+  // Gets all template names.
+  rpc GetTemplates(GetTemplatesRequest) returns (GetTemplatesResponse) {}
+}
+
+message GetTemplatesRequest {}
+
+message GetTemplatesResponse {
+  // Names of templates.
+  repeated string templates = 1;
+}

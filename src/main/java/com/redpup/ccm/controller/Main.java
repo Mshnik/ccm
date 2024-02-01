@@ -1,6 +1,8 @@
 package com.redpup.ccm.controller;
 
-import com.redpup.ccm.gui.Gui;
+import com.google.inject.Guice;
+import com.google.inject.Inject;
+import com.redpup.ccm.controller.service.CCMServiceModule;
 import com.redpup.ccm.gui.proto.GuiArgsProtos.GuiArgs;
 import com.redpup.ccm.gui.proto.GuiArgsProtos.PanelArgs;
 
@@ -18,6 +20,15 @@ public class Main {
 			.build();
 
 	public static void main(String[] args) {
-		Gui.create(GUI_ARGS);
+		Guice.createInjector(new CCMServiceModule())
+				.getInstance(Main.class)
+				.run();
+	}
+
+	@Inject
+	Main() {}
+
+	private void run() {
+
 	}
 }
