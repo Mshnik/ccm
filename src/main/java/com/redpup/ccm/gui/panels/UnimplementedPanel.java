@@ -8,9 +8,16 @@ import javax.swing.JLabel;
  *
  */
 public final class UnimplementedPanel extends GuiPanel {
+	private final String name;
+
 	public UnimplementedPanel(String name) {
-		setLayout(new BorderLayout());
-		add(new JLabel(name), BorderLayout.CENTER);
+		this.name = name;
+		add(new JLabel(name + " Unimplemented"), BorderLayout.CENTER);
+	}
+
+	@Override
+	public String getName() {
+		return name;
 	}
 }
 

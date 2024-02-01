@@ -8,13 +8,17 @@ import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.redpup.ccm.gui.proto.GuiArgsProtos.GuiArgs;
 import com.redpup.ccm.gui.proto.GuiArgsProtos.PanelArgs;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -51,7 +55,7 @@ public abstract class Gui {
 		gui.setVisiblePanel(guiArgs.getPanelList().get(0).getName());
 
 		// Set basic settings and make visible.
-		gui.jFrame().setMinimumSize(new Dimension(100, 100));
+		gui.jFrame().setMinimumSize(new Dimension(500, 500));
 		gui.jFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gui.jFrame().pack();
 		gui.jFrame().setLocationRelativeTo(null);
@@ -65,8 +69,11 @@ public abstract class Gui {
 	 */
 	private static JPanel createTabPanel(Gui.Builder builder,
 			List<PanelArgs> panelList) {
+		Color panelColor = new Color(198, 207, 208, 255);
 		JPanel panel = new JPanel();
+		panel.setBackground(panelColor);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+		panel.setBorder(new LineBorder(panelColor.darker(), 2));
 
 		for (PanelArgs panelArgs : panelList) {
 			JButton jButton = new JButton(panelArgs.getName());
